@@ -13,16 +13,8 @@ public class Livro {
         return isbn;
     }
 
-    public String setIsbn(String isbn) {
-        String mensagem=null;
-
-        if (isbn.equals("")) {
-            mensagem = "Informações inválidas";
-        } else {
-            this.isbn = isbn;
-        }
-
-        return mensagem;
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
     }
 
     public String getTitulo() {
@@ -77,5 +69,14 @@ public class Livro {
             return false;
 
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Livro{" +
+                "isbn='" + isbn + '\'' +
+                ", titulo='" + titulo + '\'' +
+                ", autor='" + autor + '\'' +
+                '}';
     }
 }

@@ -38,8 +38,22 @@ public class Teste {
         outroLivro.setIsbn("1111");
         outroLivro.setTitulo("Engenharia de Software");
         biblioteca.save(outroLivro);
-
-        //entao o total de livros cadastrados igual 1
+        //entao o total de livros cadastrados deve ser igual 1
         assertEquals(1, biblioteca.size());
+    }
+
+    @Test
+    public void ct03_quando_cadastrar_livro_com_isbn_em_branco_nao_deve_cadastrar() {
+        //dado que nao existem livros cadastrados
+        Biblioteca biblioteca = new Biblioteca();
+        //quando um livro é cadastrado com isbn em branco
+        Livro umLivro = new Livro();
+        umLivro.setAutor("Pressman");;
+        umLivro.setIsbn("");
+        umLivro.setTitulo("Engenharia de Software");
+        System.out.println(umLivro);
+        biblioteca.save(umLivro);
+        //entao o total de livros cadastrados deve ser igual 0
+        assertEquals(0, biblioteca.size());
     }
 }
