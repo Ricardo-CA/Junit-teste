@@ -51,7 +51,6 @@ public class Teste {
         umLivro.setAutor("Pressman");;
         umLivro.setIsbn("");
         umLivro.setTitulo("Engenharia de Software");
-        System.out.println(umLivro);
         biblioteca.save(umLivro);
         //entao o total de livros cadastrados deve ser igual 0
         assertEquals(0, biblioteca.size());
@@ -66,7 +65,6 @@ public class Teste {
         umLivro.setAutor("Pressman");;
         umLivro.setIsbn("1111");
         umLivro.setTitulo("");
-        System.out.println(umLivro);
         biblioteca.save(umLivro);
         //entao o total de livros cadastrados deve ser igual 0
         assertEquals(0, biblioteca.size());
@@ -81,7 +79,6 @@ public class Teste {
         umLivro.setAutor("");;
         umLivro.setIsbn("1111");
         umLivro.setTitulo("Engenharia de Software");
-        System.out.println(umLivro);
         biblioteca.save(umLivro);
         //entao o total de livros cadastrados deve ser igual 0
         assertEquals(0, biblioteca.size());
