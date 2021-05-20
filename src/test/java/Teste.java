@@ -56,4 +56,19 @@ public class Teste {
         //entao o total de livros cadastrados deve ser igual 0
         assertEquals(0, biblioteca.size());
     }
+
+    @Test
+    public void ct04_quando_cadastrar_livro_com_titulo_em_branco_nao_deve_cadastrar() {
+        //dado que nao existem livros cadastrados
+        Biblioteca biblioteca = new Biblioteca();
+        //quando um livro é cadastrado com isbn em branco
+        Livro umLivro = new Livro();
+        umLivro.setAutor("Pressman");;
+        umLivro.setIsbn("1111");
+        umLivro.setTitulo("");
+        System.out.println(umLivro);
+        biblioteca.save(umLivro);
+        //entao o total de livros cadastrados deve ser igual 0
+        assertEquals(0, biblioteca.size());
+    }
 }
