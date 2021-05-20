@@ -2,6 +2,8 @@ import com.fatec.scel.model.Biblioteca;
 import com.fatec.scel.model.Livro;
 import org.junit.Test;
 
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 
 public class Teste {
@@ -16,6 +18,27 @@ public class Teste {
         umLivro.setIsbn("1111");
         umLivro.setTitulo("Engenharia de Software");
         biblioteca.save(umLivro);
+        //entao o total de livros cadastrados igual 1
+        assertEquals(1, biblioteca.size());
+    }
+
+    @Test
+    public void ct02_quando_cadastrar_livro_com_isbn_ja_cadastrado_nao_deve_cadastrar() {
+        //dado que nao existem livros cadastrados
+        Biblioteca biblioteca = new Biblioteca();
+        //quando um livro é cadastrado
+        Livro umLivro = new Livro();
+        umLivro.setAutor("Pressman");;
+        umLivro.setIsbn("1111");
+        umLivro.setTitulo("Engenharia de Software");
+        biblioteca.save(umLivro);
+        //e outro livro com o mesmo isbn é cadastrado
+        Livro outroLivro = new Livro();
+        outroLivro.setAutor("Pressman");;
+        outroLivro.setIsbn("1111");
+        outroLivro.setTitulo("Engenharia de Software");
+        biblioteca.save(outroLivro);
+
         //entao o total de livros cadastrados igual 1
         assertEquals(1, biblioteca.size());
     }
