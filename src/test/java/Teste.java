@@ -75,4 +75,19 @@ public class Teste {
 		assertEquals(0, biblioteca.size());
 	}
 
+	@Test
+	public void ct05CadastararAutorEmBranco() {
+		// dado que nao existem livros cadastrados
+		Biblioteca biblioteca = new Biblioteca();
+		// quando um livro não cadastrado com autor em branco
+		Livro livro1 = new Livro();
+		livro1.setAutor("");
+		;
+		livro1.setIsbn("1000");
+		livro1.setTitulo("Orientação a Objetos");
+		biblioteca.save(livro1);
+		// total de livros cadastrados deve ser igual 0
+		assertEquals(0, biblioteca.size());
+	}
+
 }
