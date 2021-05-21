@@ -42,5 +42,18 @@ public class Teste {
         //total de livros cadastrados deve ser igual 1
         assertEquals(1, biblioteca.size());
     }
+	@Test
+    public void ct03CadastrarAutorEmBranco() {
+        //dado que nao existem livros cadastrados
+        Biblioteca biblioteca = new Biblioteca();
+        //quando um livro  cadastrado com isbn em branco
+        Livro livro1 = new Livro();
+        livro1.setAutor("Thiago Leite e Carvalho");;
+        livro1.setIsbn("");
+        livro1.setTitulo("Orientação a Objetos");
+        biblioteca.save(livro1);
+        //total de livros cadastrados deve ser igual 0
+        assertEquals(0, biblioteca.size());
+    }
 
 }
