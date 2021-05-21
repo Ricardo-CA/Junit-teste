@@ -9,78 +9,78 @@ import static org.junit.Assert.assertEquals;
 public class Teste {
 
     @Test
-    public void ct01_quando_dados_validos_cadastra_com_sucesso() {
+    public void ct01CadastroComSucesso() {
         //dado que nao existem livros cadastrados
         Biblioteca biblioteca = new Biblioteca();
-        //quando um livro Ã© cadastrado
-        Livro umLivro = new Livro();
-        umLivro.setAutor("Pressman");;
-        umLivro.setIsbn("1111");
-        umLivro.setTitulo("Engenharia de Software");
-        biblioteca.save(umLivro);
-        //entao o total de livros cadastrados igual 1
+        //quando um livro não existe cadastro
+        Livro livro1 = new Livro();
+        livro1.setAutor("Thiago Leite e Carvalho");;
+        livro1.setIsbn("1000");
+        livro1.setTitulo("Orientação a Objetos");
+        biblioteca.save(livro1);
+        //total de livros cadastrados igual 1
         assertEquals(1, biblioteca.size());
     }
 
     @Test
-    public void ct02_quando_cadastrar_livro_com_isbn_ja_cadastrado_nao_deve_cadastrar() {
+    public void ct02CadastrarComIsbnJaCadastrado() {
         //dado que nao existem livros cadastrados
         Biblioteca biblioteca = new Biblioteca();
-        //quando um livro Ã© cadastrado
-        Livro umLivro = new Livro();
-        umLivro.setAutor("Pressman");;
-        umLivro.setIsbn("1111");
-        umLivro.setTitulo("Engenharia de Software");
-        biblioteca.save(umLivro);
-        //e outro livro com o mesmo isbn Ã© cadastrado
-        Livro outroLivro = new Livro();
-        outroLivro.setAutor("Pressman");;
-        outroLivro.setIsbn("1111");
-        outroLivro.setTitulo("Engenharia de Software");
-        biblioteca.save(outroLivro);
-        //entao o total de livros cadastrados deve ser igual 1
+        //quando um livro não existe cadastro
+        Livro livro1 = new Livro();
+        livro1.setAutor("Thiago Leite e Carvalho");;
+        livro1.setIsbn("1000");
+        livro1.setTitulo("Orientação a Objetos");
+        biblioteca.save(livro1);
+        //e outro livro com o mesmo isbn não cadastrado
+        Livro livro2 = new Livro();
+        livro2.setAutor("Thiago Leite e Carvalho");;
+        livro2.setIsbn("1000");
+        livro2.setTitulo("Orientação a Objetos");
+        biblioteca.save(livro2);
+        //total de livros cadastrados deve ser igual 1
         assertEquals(1, biblioteca.size());
     }
 
     @Test
-    public void ct03_quando_cadastrar_livro_com_isbn_em_branco_nao_deve_cadastrar() {
+    public void ct03CadastrarAutorEmBranco() {
         //dado que nao existem livros cadastrados
         Biblioteca biblioteca = new Biblioteca();
-        //quando um livro Ã© cadastrado com isbn em branco
-        Livro umLivro = new Livro();
-        umLivro.setAutor("Pressman");;
-        umLivro.setIsbn("");
-        umLivro.setTitulo("Engenharia de Software");
-        biblioteca.save(umLivro);
-        //entao o total de livros cadastrados deve ser igual 0
+        //quando um livro  cadastrado com isbn em branco
+        Livro livro1 = new Livro();
+        livro1.setAutor("Thiago Leite e Carvalho");;
+        livro1.setIsbn("");
+        livro1.setTitulo("Orientação a Objetos");
+        biblioteca.save(livro1);
+        //total de livros cadastrados deve ser igual 0
         assertEquals(0, biblioteca.size());
     }
 
     @Test
-    public void ct04_quando_cadastrar_livro_com_titulo_em_branco_nao_deve_cadastrar() {
+    public void ct04CadastrarTituloEmBranco() {
         //dado que nao existem livros cadastrados
         Biblioteca biblioteca = new Biblioteca();
-        //quando um livro Ã© cadastrado com titulo em branco
-        Livro umLivro = new Livro();
-        umLivro.setAutor("Pressman");;
-        umLivro.setIsbn("1111");
-        umLivro.setTitulo("");
-        biblioteca.save(umLivro);
-        //entao o total de livros cadastrados deve ser igual 0
+        //quando um livro não cadastrado com titulo em branco
+        Livro livro1 = new Livro();
+        livro1.setAutor("Thiago Leite e Carvalho");;
+        livro1.setIsbn("1000");
+        livro1.setTitulo("");
+        biblioteca.save(livro1);
+        //total de livros cadastrados deve ser igual 0
         assertEquals(0, biblioteca.size());
     }
 
     @Test
-    public void ct05_quando_cadastrar_livro_com_autor_em_branco_nao_deve_cadastrar() {
+    public void ct05CadastararAutorEmBranco() {
         //dado que nao existem livros cadastrados
         Biblioteca biblioteca = new Biblioteca();
-        //quando um livro Ã© cadastrado com autor em branco
-        Livro umLivro = new Livro();
-        umLivro.setAutor("");;
-        umLivro.setIsbn("1111");
-        umLivro.setTitulo("Engenharia de Software");
-        biblioteca.save(umLivro);
-        //entao o total de livros cadastrados deve ser igual 0
+        //quando um livro não cadastrado com autor em branco
+        Livro livro1 = new Livro();
+        livro1.setAutor("");;
+        livro1.setIsbn("1000");
+        livro1.setTitulo("Orientação a Objetos");
+        biblioteca.save(livro1);
+        //total de livros cadastrados deve ser igual 0
         assertEquals(0, biblioteca.size());
     }
 }
